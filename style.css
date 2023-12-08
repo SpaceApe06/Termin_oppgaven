@@ -1,0 +1,176 @@
+@font-face {
+	font-family: "Wood Block CG";
+	src: url("font/Wood\ Block\ CG.otf");
+}
+
+* {
+	font-family: "Comic Sans MS";
+}
+#BS_body{
+	background-color:#655584;
+}
+/* Login og register */
+
+.Logg_inn_container {
+	display: flex;
+	/* align-content: center; */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* border: 5px solid blue; */
+	padding: 10px;
+	/* font-family: "dubai medium"; */
+	flex-wrap: wrap;
+}
+#tittelLogo {
+	width: 75%;
+	font-family: "Wood Block CG";
+	height: auto;
+}
+#Logg_in_Title {
+	font-size: 50;
+
+}
+#Logg_inn {
+	display: flex;
+	/* align-self: center; */
+	background-color: white;
+	align-content: center;
+	border: 3px solid black;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex-wrap: wrap;
+	/* border: 5px solid blue; */
+	padding: 40px;
+	border-radius: 20px;
+	box-shadow: 10px 10px 0px 0px black;
+}
+#brukernavnPassord {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	/* font-family: "dubai medium"; */
+	padding: 10px;
+}
+#loginButton {
+	background-color: #00bfff;
+	color: white;
+	border: 2px solid skyblue;
+	font-size: 20px;
+	/* font-family: "dubai medium"; */
+	width: 100%;
+	cursor: pointer;
+    transition: all 0.1s ease;
+}
+#loginButton:hover {
+	background-color: #0000ff;
+	color: grey;
+	border: 2px solid deepskyblue;
+}
+/* Main menu */
+#menu_container{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: flex-start;
+	border: 5px solid #78C144;
+	padding: 20px;
+	height: 93vh;
+}
+#Menu{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 30%;
+	margin-top: 2%;
+}
+#bottom_Menu{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border: 5px solid blue;
+}
+#menuButton{
+	background-color: white;
+	color: black;
+	border: 2px solid black;
+	font-size: 20px;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+    transition: all 0.1s ease;
+	margin-top: 20px;
+	box-shadow: 10px 10px 0px 0px black;
+}
+#menuButton:hover{
+	background-color: green;
+	color: white;
+	border: 2px solid white;
+}
+#menuLogo{
+	width: 200%;
+	height: auto;
+	font-family: "Wood Block CG";
+}
+/* BattleSnake spillet */
+#gameMenu{
+	display: none;
+}
+#encounter {
+	width: 70vw;
+	height: 70vh;
+	background-color: #374739;
+	border: 5px solid #658068;
+	border-radius: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+
+}
+
+#encounter img {
+	width: 500px;
+}
+
+#encounter button {
+	width: 200px;
+	height: 50px;
+	background-color: #5c7560;
+	color: white;
+	border: 2px solid white;
+	border-radius: 10px;
+	font-size: 20px;
+	cursor: pointer;
+	transition: all 0.1s ease;
+	margin-bottom: 20px;
+	transition: all 0.2s ease-in-out;
+}
+
+#encounter button:hover {
+	background-color: #658068;
+	color: white;
+	border: 2px solid white;
+	width: 250px;
+}
+
+#encounter button:active {
+	background-color: #5c7560;
+	color: white;
+	border: 2px solid white;
+	width: 200px;
+
+}
+
+#encounter h1 {
+	color: white;
+	font-size: 40px;
+}
