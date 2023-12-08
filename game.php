@@ -12,12 +12,12 @@
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Henter jquery-->
+    <div id="gameMenu">
+        <button id="Game_button" type="submit" onclick="toggleMenu()">Resume</button>
+        <button id="Game_button" type="submit">Snakes</button>
+        <button id="Game_button" type="submit" onclick="window.location='Main_menu.php'">Quit to menu</button>
+    </div>
     <div id="game"> <!-- Her ligger selve spillet -->
-        <!-- <div id="gameMenu">
-                <button id="Game_button" type="submit">Resume</button>
-                <button id="Game_button" type="submit">Snakes</button>
-                <button id="Game_button" type="submit" onclick="window.location='Main_menu.php'">Quit to menu</button>
-            </div> -->
     </div>
 
     <div id="encounter"> <!-- Her ligger slange vinduet -->

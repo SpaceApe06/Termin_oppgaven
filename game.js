@@ -32,7 +32,7 @@ for (let y = 0; y < mapHeight; y++) {
 		tile.tileElement.style.position = "absolute";
 		tile.tileElement.style.left = tile.x * 50 + "px";
 		tile.tileElement.style.top = tile.y * 50 + "px";
-        tile.tileElement.style.imageRendering = "pixelated";
+		tile.tileElement.style.imageRendering = "pixelated";
 		tilemap[y][x] = tile;
 		game.appendChild(tile.tileElement);
 	}
@@ -49,7 +49,7 @@ class Player {
 		this.image.style.position = "absolute";
 		this.image.style.left = this.x * 50 + "px";
 		this.image.style.top = this.y * 50 + "px";
-        this.image.style.transition = "all 0.1s"
+		this.image.style.transition = "all 0.1s";
 		this.canMove = true;
 		game.appendChild(this.image);
 	}
@@ -66,14 +66,14 @@ class Player {
 			newPlayerY >= 0 &&
 			newPlayerY < mapHeight
 		) {
-			// Dette er for når spilleren er på en grass tile så gjør det at det er en sjanse for gresset til å interacte med spilleren og 
-			// tilfeldighvis møtte på en slange. 
+			// Dette er for når spilleren er på en grass tile så gjør det at det er en sjanse for gresset til å interacte med spilleren og
+			// tilfeldighvis møtte på en slange.
 			console.log(tilemap);
 			const newTile = tilemap[newPlayerY][newPlayerX].image;
 			console.log(newTile);
 			random = Math.floor(Math.random() * 10);
 			if (newTile === "Resources/images/grass.png") {
-				if (random < 3) {
+				if (random < 1) {
 					encounter();
 				}
 			}
@@ -119,9 +119,11 @@ document.addEventListener("keydown", function (event) {
 		case 40: // nedover pil tast
 			player.move(0, 1);
 			break;
-        case 73:
-            inventory.style.display = "flex";
-            break;
+		case 73:
+			inventory.style.display = "flex";
+			break;
+		case 27:
+			toggleMenu();
 		default:
 			break;
 	}
@@ -136,7 +138,7 @@ class Snake {
 	}
 }
 // gjør sånn at elementene til slangen blir lagt til i html dokumentet
-var encounterDiv = document.querySelector("#encounter"); 
+var encounterDiv = document.querySelector("#encounter");
 // når spilleren er på gresset så er det en sjanse for at det dukker opp en slange
 function encounter() {
 	if (!player.canMove) {
@@ -159,10 +161,10 @@ function encounter() {
 	} else if (encounter === 3) {
 		snake.type = "blue";
 		snake.image.src = "Resources/images/snakes/Blue_snake.png";
-}
+	}
 	player.canMove = false;
-	
-// Lager slange vinduet når man møtter på en slange og lager elemente til den.
+
+	// Lager slange vinduet når man møtter på en slange og lager elemente til den.
 	encounterDiv.innerHTML = "";
 
 	let encounterText = document.createElement("h1");
@@ -171,23 +173,23 @@ function encounter() {
 
 	catchButton = document.createElement("button");
 	catchButton.innerHTML = "Catch";
-    catchButton.type = "submit";
+	catchButton.type = "submit";
 	catchButton.addEventListener("click", function () {
-        encounterDiv.style.display = "none";    
+		encounterDiv.style.display = "none";
 		player.canMove = true;
 	});
-    var form = document.createElement("form");
-    form.method = "post";
-    form.action = "catch.php";
+	var form = document.createElement("form");
+	form.method = "post";
+	form.action = "catch.php";
 	form.appendChild(catchButton);
 
-    typeThing = document.createElement("input");
-    typeThing.type = "hidden";
-    typeThing.name = "type";
-    typeThing.value = snake.type;
-    form.appendChild(typeThing);
-    
-    encounterDiv.appendChild(form);
+	typeThing = document.createElement("input");
+	typeThing.type = "hidden";
+	typeThing.name = "type";
+	typeThing.value = snake.type;
+	form.appendChild(typeThing);
+
+	encounterDiv.appendChild(form);
 
 	runButton = document.createElement("button");
 	runButton.innerHTML = "Run";
@@ -200,13 +202,16 @@ function encounter() {
 	encounterDiv.appendChild(snake.image);
 	encounterDiv.style.display = "flex";
 }
-//dette gjør at spill menyen vises eller blir gjemt når man trykker på esc knappen
-// $(document).keyup(function(e) {
-// 	if (e.keyCode == 27) {                   // esc
-// 	  if ($('#gameMenu').is(':visible')) {
-// 		$('#gameMenu').hide();
-// 	  } else {
-// 		$('#gameMenu').show();
-// 	  }
-// 	}
-//   });
+
+
+const menu = document.querySelector("#gameMenu");
+
+function toggleMenu() {
+	if (menu.style.display === "none") {
+		menu.style.display = "flex";
+		player.canMove = false;
+	} else {
+		menu.style.display = "none";
+		player.canMove = true;
+	}
+}
